@@ -56,8 +56,8 @@ INFO: Index: cspdata-2016.09.18
 INFO: Found date: 2016-09-18
 INFO: cspdata-2016.09.18 is less than 3 days old, doing nothing.
 -------------------------------------------
-INFO: Index: cspdata-2016.08.20
-INFO: Found date: 2016-08-20
+INFO: Index: cspdata-2016.09.20
+INFO: Found date: 2016-09-20
 INFO: cspdata-2016.09.20 is less than 3 days old, doing nothing.
 -------------------------------------------
 ```

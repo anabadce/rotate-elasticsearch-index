@@ -1,5 +1,6 @@
 # rotate-elasticsearch-index
-Bash script to delete indices in Elasticsearch older than a given number of days. Index names must contain date in YYYY.MM.DD format.
+Bash script to delete indices in Elasticsearch older than a given number of days. 
+Index names must contain date in YYYY.MM.DD format.
  
 This script receives as parameters:
 
@@ -45,18 +46,18 @@ DELETE: cspdata-2016.09.17 is about to be deleted.
 -------------------------------------------
 INFO: Index: cspdata-2016.09.19
 INFO: Found date: 2016-09-19
-INFO: cspdata-2016.09.19 is less than 30 days old, doing nothing.
+INFO: cspdata-2016.09.19 is less than 3 days old, doing nothing.
 -------------------------------------------
 INFO: Index: cspdata-2016.09.21
 INFO: Found date: 2016-09-21
-INFO: cspdata-2016.09.19 is less than 30 days old, doing nothing.
+INFO: cspdata-2016.09.21 is less than 3 days old, doing nothing.
 -------------------------------------------
 INFO: Index: cspdata-2016.09.18
 INFO: Found date: 2016-09-18
-INFO: cspdata-2016.09.18 is less than 30 days old, doing nothing.
+INFO: cspdata-2016.09.18 is less than 3 days old, doing nothing.
 -------------------------------------------
 INFO: Index: cspdata-2016.08.20
 INFO: Found date: 2016-08-20
-INFO: cspdata-2016.09.18 is less than 30 days old, doing nothing.
+INFO: cspdata-2016.09.20 is less than 3 days old, doing nothing.
 -------------------------------------------
 ```

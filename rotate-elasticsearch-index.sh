@@ -31,8 +31,8 @@ DATE=`date -u +%Y-%m-%d -d "$3 day ago"`
 DATE_INT=$(date -d $DATE +%s)
 
 yearReg='(201[0-9]|202[0-9]|203[0-9])'   # Allows a number between 2010 and 2039
-monthReg='(0[1-9]|1[0-2])'               # Allows a number between 00 and 12
-dayReg='(0[1-9]|1[0-9]|2[0-9]|3[0-1])'   # Allows a number between 00 and 31
+monthReg='(00|0[1-9]|1[0-2])'               # Allows a number between 00 and 12
+dayReg='(00|0[1-9]|1[0-9]|2[0-9]|3[0-1])'   # Allows a number between 00 and 31
 regDate="$yearReg\\.$monthReg\\.$dayReg"
 
 while read -r line; do

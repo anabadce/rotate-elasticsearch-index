@@ -25,7 +25,7 @@ fi
 echo "=== `date` ==="
 
 # getting all indices
-INDICES=`curl $2/_cat/indices 2>&1 | grep $1 | cut -d " " -f 3`
+INDICES=`curl -s $2/_cat/indices 2>&1 | grep $1 | awk '{print $3}'`
 
 DATE=`date -u +%Y-%m-%d -d "$3 day ago"`
 DATE_INT=$(date -d $DATE +%s)

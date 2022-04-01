@@ -4,30 +4,32 @@
 # Index names must contain date string in format YYYY.MM.DD
 #
 abort() {
+  echo "$WRONG_PARAMS"
+  echo
   echo "Usage: $0 <indexpattern> <elasticsearch URL> <days to keep>"
   echo "Example: $0 cspdata https://something.somewhere.es.amazonaws.com 30"
-  echo $WRONG_PARAMS
+  echo
   exit 1
 }
 
 if [[ "$#" -ne 3 ]] ;
 then
-  WRONG_PARAMS="ERROR: I need 3 paramenters."
+  WRONG_PARAMS='ERROR: I need 3 paramenters.'
   abort
 fi
 
 if ! [ "$3" -eq "$3" ] ;
 then
-  WRONG_PARAMS="ERROR: 'days to keep' is not a number"
+  WRONG_PARAMS='ERROR: <days to keep> is not a number'
   abort
 fi
 
-echo "=== `date` ==="
+echo "=== $(date) ==="
 
 # getting all indices
-INDICES=`curl -s $2/_cat/indices 2>&1 | grep $1 | awk '{print $3}'`
+INDICES=$(curl -s $2/_cat/indices 2>&1 | grep $1 | awk '{print $3}')
 
-DATE=`date -u +%Y-%m-%d -d "$3 day ago"`
+DATE=$(date -u +%Y-%m-%d -d "$3 day ago")
 DATE_INT=$(date -d $DATE +%s)
 
 yearReg='(201[0-9]|202[0-9]|203[0-9])'   # Allows a number between 2010 and 2039
@@ -45,7 +47,7 @@ while read -r line; do
     INDEX_DATE="${INDEX_DATE//./-}"
     echo "INFO: Found date: $INDEX_DATE"
   else
-    echo "WARNING: No date found in index name - index ignored."
+    echo 'WARNING: No date found in index name - index ignored.'
   fi
 
   # if index date older than today minus $3 days ago then we delete
@@ -63,5 +65,3 @@ while read -r line; do
   fi  
 
 done <<< "$INDICES"
-
-
